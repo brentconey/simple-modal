@@ -3,10 +3,10 @@ simple-modal
 
 This is a super simple, out of your way, js modal library.
 Dependencies: jQuery
-
-To use: First, you need to add the overlay to the page. The overlay can be anywhere and only needs to be on the page once. <pre><div class="modal-overlay"></div></pre>
+<pre>
+To use: First, you need to add the overlay to the page. The overlay can be anywhere and only needs to be on the page once. <div class="modal-overlay"></div>
 		Add a class of Modal to the div you would like to be a modal.
-			Ex. <pre><div class="modal" id="add_name"><!-- any html here --></div></pre>
+			Ex. <div class="modal" id="add_name"><!-- any html here --></div>
 			
 		Add a modal activator that will show the modal.
 			Ex. <a class="modal-activator" href="#add_name">Show Modal</a>
@@ -35,5 +35,5 @@ To use: First, you need to add the overlay to the page. The overlay can be anywh
 							function errorHandler(data){
 								//error handling code
 							}
-
+</pre>
 Contributors: Brent Coney & Jordan Little
