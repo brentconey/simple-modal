@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple-modal Demo</title>
+	<link rel="stylesheet" media="all" href="simplemodal.css" />
+</head>
+<body>
+<div class="modal-overlay"></div>
+
+ <a class="modal-activator" href="#add_name">Show Modal</a>
+
+<div class="modal" id="add_name">
+    <form action="" method="post">
+        <header>
+            <span>Add an item</span>
+            <span class="modal-close">×</span>
+        </header>
+
+        <input type="text" placeholder="What is your name?" />
+        <footer>
+            <input type="submit" class="modal-action add-item-submit modal-submit" id="add_item_submit" value="add item" />
+        </footer>
+    </form>
+</div>
+</body>
+	<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="simplemodal.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#add_name").simplemodal({
+                ajaxDone: successFunction,
+                ajaxError: errorHandler
+            });
+			
+			function successFunction(data){
+				alert("Success");
+			}
+			
+			function errorHandler(data){
+				alert("error");
+			}
+		});
+	
+	</script>
+</html>
