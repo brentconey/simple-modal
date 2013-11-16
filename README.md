@@ -35,32 +35,21 @@ If your modal div has a form, simple modal will read the action and method of th
 Options: Simplemodal has three properties that you can use.
 
 
-Show: This defaults to false and can be overridden to true to show the modal on page load.
+	Show: This defaults to false and can be overridden to true to show the modal on page load.
+	Ex. $("#add_name").simplemodal({ show: true });
 
 
-Ex. $("#add_name").simplemodal({ show: true });
+	ajaxDone: This is a hook into the successful completion of the ajax call.
+	Ex. $("#add_name").simplemodal({ ajaxDone: successFunction });
+	function successFunction(data){
+		//this will fire when the ajax even is done, passing back any data from the call
+	}
 
-
-ajaxDone: This is a hook into the successful completion of the ajax call.
-
-
-Ex. $("#add_name").simplemodal({ ajaxDone: successFunction });
-
-
-function successFunction(data){
-//this will fire when the ajax even is done, passing back any data from the call
-}
-
-
-ajaxError: This is the same as ajaxDone except that it fires when an error with the ajax call occurs.
-
-
-Ex. $("#add_name").simplemodal({ ajaxError: errorHanlder });
-
-
-function errorHandler(data){
-//error handling code
-}
+	ajaxError: This is the same as ajaxDone except that it fires when an error with the ajax call occurs.
+	Ex. $("#add_name").simplemodal({ ajaxError: errorHanlder });
+	function errorHandler(data){
+		//error handling code
+	}
 
 
 Contributors: Brent Coney & Jordan Little
