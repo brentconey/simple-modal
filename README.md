@@ -2,7 +2,7 @@ simple-modal
 ============
 
 This is a super simple, out of your way, js modal library.
-
+The demo can be seen here: http://brentconey.com/simplemodal
 
 Dependencies: jQuery
 
