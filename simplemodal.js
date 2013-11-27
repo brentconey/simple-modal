@@ -22,7 +22,7 @@
             var $formInputs = $modalForm.find('input, textarea, select')
                 .not(':input[type=button], :input[type=submit], :input[type=reset]');
             
-            var $submitButton = $($modalForm.find("input[type=submit]")[0]);
+            var $submitButton = $($modalForm.find(".modal-confirm")[0]);
 
             $(document).on("click", '#' + $submitButton.attr("id"), function (e) {
                 e.preventDefault();
@@ -77,7 +77,8 @@
         }
     });
 
-    $(document).on("click", ".modal-overlay, .modal-close", function () {
+    $(document).on("click", ".modal-overlay, .modal-close, .modal-cancel", function (e) {
+        e.preventDefault();
         hideModal();
     });
 

@@ -1,38 +1,102 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title>Simplemodal Demo</title>
-	<link rel="stylesheet" media="all" href="simplemodal.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" media="all" href="simplemodal.css" />
+
+    <style>
+	body {
+	    background:#f8f8f8;
+	    font-family:'Lato',Arial,sans-serif;
+	    padding-top:80px;
+	}
+	.demo {
+	    background:#fff;
+	    box-shadow:0 1px 2px rgba(0,0,0,.25);
+	    margin:0 auto;
+	    padding:40px 0;
+	    text-align:center;
+	    width:300px;
+	}
+	.demo a {
+	    background:#4fbcfb;
+	    border-radius:4px;
+	    color:#fff;
+	    display:block;
+	    font-size:18px;
+	    margin:0 auto;
+	    padding:18px;
+	    text-decoration:none;
+	    text-shadow:0 1px 0 rgba(0,0,0,.25);
+	    transition:.25s ease-in-out all;
+	    width:60%;
+	}
+	.demo a:hover,
+	.demo a:focus {
+	    background:#40aae7;
+	}
+	.demo a:active {
+	    background:#444;
+	}
+	input[type="text"] {
+		box-sizing:border-box;
+		display:block;
+		font-size:16px;
+		padding:5px;
+		width:100%;
+	}
+	.modal-action {
+		border-radius:4px;
+		color:#fff;
+		cursor:pointer;
+		text-shadow:0 1px 0 rgba(0,0,0,.25);
+	}
+	.modal-confirm {
+		background:#4fbcfb;
+	}
+	.modal-cancel {
+		background:#ddd;
+		color:#555;
+		text-shadow:none;
+	}
+    </style>
 </head>
 <body>
+
+
 <div class="modal-overlay"></div>
-
- <a class="modal-activator" href="#add_name">Show Modal</a>
-
 <div class="modal" id="add_name">
     <form action="" method="post">
-        <header>
-            <span>Add a name</span>
+        <header class="modal-header">
+            <span class="modal-title">Add a name</span>
             <span class="modal-close">×</span>
         </header>
-
-        <input type="text" placeholder="What is your name?" />
-        <footer>
-            <input type="submit" id="add_name_submit" value="add name" />
+        <div class="modal-guts">
+	        <input type="text" placeholder="What is your name?" />
+	</div>
+        <footer class="modal-footer">
+	    <input class="modal-action modal-cancel" type="submit" id="cancel" value="Cancel" />
+            <input class="modal-action modal-confirm" type="submit" id="save" value="Save" />
         </footer>
     </form>
 </div>
+
+	<div class="demo">
+		<a class="modal-activator" href="#add_name">Show Modal</a>
+	</div>
+
+
 </body>
 	<script type="text/javascript" src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="simplemodal.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$("#add_name").simplemodal({
-                ajaxDone: successFunction,
-                ajaxError: errorHandler
-            });
+				ajaxDone: successFunction,
+				ajaxError: errorHandler
+			});
 			
 			function successFunction(data){
 				alert("Success");
