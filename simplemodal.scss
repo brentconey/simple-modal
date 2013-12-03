@@ -1,0 +1,121 @@
+$overlay-bg-color: rgba(0,0,0,.5);
+$modal-bg-color: #fff;
+$modal-header-bg-color: #f8f8f8;
+$modal-footer-bg-color: #f8f8f8;
+
+$modal-border-radius: 6px;
+$modal-width-on-desktop: 420px;
+$modal-title-height: 60px;
+
+$modal-action-border-radius: 4px;
+$modal-action-confirm-color: #40aae7;
+    $modal-action-confirm-text-color: #fff;
+$modal-action-cancel-color: #ddd;
+    $modal-action-cancel-text-color: #333;
+
+.modal-overlay {
+    background: $overlay-bg-color;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top:0;
+    left:0;
+    opacity: 0;
+    transition: .15s ease-in-out all;
+    z-index: -1;
+}
+.modal-overlay--show {
+    z-index: 100;
+    opacity: 1;
+    transition: .15s ease-in-out all;
+}
+
+
+.modal {
+    background: $modal-bg-color;
+    border-radius: $modal-border-radius;
+    position:absolute;
+    top:-20%;
+    width:90%;
+    left:5%;
+    opacity:0;
+    z-index:-1;
+    transition: .3s ease-in-out top;
+}
+.modal--show {
+    box-shadow:0 2px 7px rgba(0,0,0,.25);
+    top:20px;
+    opacity: 1;
+    z-index: 101;
+    transition:.3s ease-in-out top;
+}
+    @media(min-width:499px){
+        .modal--show {
+            top:20px;
+            width: $modal-width-on-desktop;
+            left:50%;
+            margin-left:-200px;
+        }
+    }
+
+
+.modal-close {
+    border-radius: 0 ($modal-border-radius - 1) 0 0;
+    font-size:1.5em;
+    position: absolute;
+    width: $modal-title-height;
+    height: $modal-title-height;
+    line-height: ($modal-title-height - 2);
+    text-align:center;
+    font-weight:800;
+    top:0;
+    right:0;
+    text-align:center;
+    cursor:pointer;
+}
+.modal-close:hover {
+    background:#e34c33;
+    color:#fff;
+}
+
+
+
+.modal-header,
+.modal-footer {
+    height: $modal-title-height;
+    line-height: $modal-title-height;
+    padding:0 20px;
+}
+.modal-header {
+    background: $modal-header-bg-color;
+    border-radius: $modal-border-radius $modal-border-radius 0 0;
+}
+.modal-footer {
+    background-color: $modal-footer-bg-color;
+    border-radius: 0 0 $modal-border-radius $modal-border-radius;
+    text-align:right;
+}
+.modal-title {
+    font-size:1.2em;
+    font-weight:bold;
+}
+.modal-guts {
+    padding:20px;
+}
+.modal-action {
+    -webkit-appearance:none;
+    background:#eee;
+    border:none;
+    border-radius: $modal-action-border-radius;
+    cursor:pointer;
+    font-size:1em;
+    padding:($modal-title-height / 9) ($modal-title-height / 3);
+}
+.modal-cancel {
+    background: $modal-action-cancel-color;
+    color: $modal-action-cancel-text-color;
+}
+.modal-confirm {
+    background: $modal-action-confirm-color;
+    color: $modal-action-confirm-text-color;
+}

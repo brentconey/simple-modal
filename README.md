@@ -1,15 +1,13 @@
 simple-modal
 ============
 
-This is a super simple, out of your way, js modal library.
+This is a super simple, out of your way, js modal library. Check out demo.html as a supplement to these instructions.
 
 
 Dependencies
 ============
 jQuery
-
-
-Please use demo.html in the project as a supplement to these instructions
+SASS
 
 
 Usage
@@ -24,7 +22,6 @@ Once you have jQuery and the simplemodal.js files loaded, all you need to do is 
 $("#add_name").simplemodal();
 
 This is the most basic usage.
-
 		
 If your modal div has a form, simple modal will read the action and method of the form and set up an ajax call passing all the input data within the div automatically.
 	
