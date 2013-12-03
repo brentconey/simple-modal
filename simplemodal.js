@@ -59,6 +59,10 @@
         var modalActivator = $modal.attr("id");
         $(document).on('click','a[href="#' + modalActivator + '"]', function (e) {
             e.preventDefault();
+            // if the modal overlay doesn't exist, add it
+            if( !$(".modal-overlay").length ){
+                $('body').prepend('<div class="modal-overlay"></div>');
+            }
             showModal();
             $modal.find("input").first().focus(); 
         });
@@ -72,8 +76,7 @@
     //global click handlers
     $(document).on("keyup", function (e) {
         if (e.keyCode === 27) {
-            $(".modal-overlay").removeClass("modal-overlay--show");
-            $(".modal").removeClass("modal--show");
+            hideModal();
         }
     });
 
