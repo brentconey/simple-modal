@@ -6,8 +6,7 @@ This is a super simple, out of your way, js modal library. Check out demo.html a
 
 Dependencies
 ============
-jQuery
-SASS
+jQuery & SASS
 
 
 Usage
