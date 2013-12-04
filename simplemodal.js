@@ -64,7 +64,7 @@
                 $('body').prepend('<div class="modal-overlay"></div>');
             }
             showModal();
-            $modal.find("input").first().focus(); 
+            // $modal.find("input").first().focus(); 
         });
 
         function showModal() {
