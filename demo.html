@@ -75,6 +75,16 @@
 	<div class="demo">
 		<a class="modal-activator" href="#add_name">Show Modal</a>
 	</div>
+	
+	<div class="modal" id="success_message">
+        <header class="modal-header">
+            <span class="modal-title">Success Message</span>
+            <span class="modal-close">×</span>
+        </header>
+        <div class="modal-guts">
+            <p>Success!</p>
+        </div>
+    </div>
 
 
 </body>
@@ -82,13 +92,14 @@
 	<script type="text/javascript" src="simplemodal.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			var successModal = $("#success_message").simplemodal();
 			$("#add_name").simplemodal({
 				ajaxDone: successFunction,
 				ajaxError: errorHandler
 			});
 			
 			function successFunction(data){
-				alert("Success");
+				successModal.show();
 			}
 			
 			function errorHandler(data){

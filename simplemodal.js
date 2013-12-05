@@ -71,6 +71,10 @@
             $(".modal-overlay").addClass("modal-overlay--show");
             $modal.addClass("modal--show");
         }
+		
+		return {
+			show: showModal
+		};
         
     };
     //global click handlers
