@@ -1,13 +1,12 @@
 simple-modal
 ============
 
-<<<<<<< HEAD
 This is a super simple, out of your way, js modal library.
 The demo can be seen here: http://brentconey.com/simplemodal
 =======
 This is a super simple, out of your way, js modal library. Check out demo.html as a supplement to these instructions.
 
->>>>>>> cd2c709504861d35aa3e155ae57cf0be3e0d9a2e
+
 
 Dependencies
 ============
