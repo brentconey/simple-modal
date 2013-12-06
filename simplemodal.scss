@@ -50,14 +50,17 @@ $modal-action-cancel-color: #ddd;
     top:2.5%;
     z-index: 101;
     opacity:1;
-    transition:.3s linear opacity,.3s ease-out top;
+    transition:.35s ease-out opacity, .3s ease-out top;
 }
     @media(min-width:$breakpoint){
+        .modal,
         .modal--show {
-            top:15%;
-            width: $modal-width-on-desktop;
             left:50%;
             margin-left:-200px;
+            width: $modal-width-on-desktop;
+        }
+        .modal--show {
+            top:15%;
         }
     }
 
