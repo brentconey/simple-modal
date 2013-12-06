@@ -17,6 +17,9 @@ $modal-action-confirm-color: #40aae7;
 $modal-action-cancel-color: #ddd;
     $modal-action-cancel-text-color: #666;
 
+$modal-success-color: #44dd70;
+$modal-error-color: $modal-close-color;
+
 .modal-overlay {
     background: $overlay-bg-color;
     min-height: 100%;
@@ -52,6 +55,11 @@ $modal-action-cancel-color: #ddd;
     opacity:1;
     transition:.35s ease-out opacity, .3s ease-out top;
 }
+.modal-alert {
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+    border:4px solid #fff;
+    cursor:pointer;
+}
     @media(min-width:$breakpoint){
         .modal,
         .modal--show {
@@ -61,6 +69,11 @@ $modal-action-cancel-color: #ddd;
         }
         .modal--show {
             top:15%;
+        }
+        .modal-alert.modal--show {
+            top:2.5%;
+            left:2.5%;
+            margin-left:0;
         }
     }
 
@@ -82,6 +95,16 @@ $modal-action-cancel-color: #ddd;
 .modal-close:hover {
     background:$modal-close-color;
     color:#fff;
+}
+.modal-alert .modal-close {
+    border:2px solid #fff;
+    border-radius:$modal-title-height;
+    color:#fff;
+    line-height:($modal-title-height * .52);
+    height:($modal-title-height * .55);
+    top:($modal-title-height * .15);
+    right:($modal-title-height * .15);
+    width:($modal-title-height * .55);
 }
 
 
@@ -133,4 +156,29 @@ $modal-action-cancel-color: #ddd;
     background: $modal-action-confirm-color;
     color: $modal-action-confirm-text-color;
     text-shadow:0 1px 0 lighten(invert($modal-action-confirm-text-color), 40%);
+}
+
+.modal-alert.alert-success .modal-header,
+.modal-alert.alert-success .modal-guts {
+    background: $modal-success-color;
+}
+.modal-alert.alert-error .modal-header,
+.modal-alert.alert-error .modal-guts {
+    background: $modal-error-color;
+}
+.modal-alert .modal-guts {
+    border-radius: 0 0 $modal-border-radius $modal-border-radius;
+    padding-top:0;
+}
+.alert-message {
+    margin:0;
+}
+.modal-alert.alert-success .alert-message {
+    color:darken($modal-success-color,50%);
+}
+.modal-alert.alert-error .alert-message {
+    color:darken($modal-error-color,50%);
+}
+.modal-alert .modal-title {
+    color:#fff;
 }

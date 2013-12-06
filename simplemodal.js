@@ -58,6 +58,8 @@
         }
         var modalActivator = $modal.attr("id");
         $(document).on('click','a[href="#' + modalActivator + '"]', function (e) {
+            // is this a good idea? so it clears all modals if you activate a new one while one is being shown
+            hideModal();
             e.preventDefault();
             // if the modal overlay doesn't exist, add it
             if( !$(".modal-overlay").length ){
@@ -68,7 +70,10 @@
         });
 
         function showModal() {
-            $(".modal-overlay").addClass("modal-overlay--show");
+            // if we're not dealing with an alert, show the overlay
+            if(!$modal.hasClass('modal-alert')){
+                $(".modal-overlay").addClass("modal-overlay--show");
+            }
             $modal.addClass("modal--show");
         }
         
@@ -80,7 +85,7 @@
         }
     });
 
-    $(document).on("click", ".modal-overlay, .modal-close, .modal-cancel", function (e) {
+    $(document).on("click", ".modal-overlay, .modal-close, .modal-cancel, .modal-alert", function (e) {
         e.preventDefault();
         hideModal();
     });
