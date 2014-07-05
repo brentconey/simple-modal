@@ -4,7 +4,9 @@
         var defaultOptions = $.extend({
             show: false,
             ajaxDone: null,
-            ajaxError: null
+            ajaxError: null,
+            onModalCancel: null,
+            onModalConfirm: null
         }, options);
 
         if (defaultOptions.show) {
@@ -21,8 +23,8 @@
             var method = $modalForm.attr("method");
             var $formInputs = $modalForm.find('input, textarea, select')
                 .not(':input[type=button], :input[type=submit], :input[type=reset]');
-            
-            var $submitButton = $($modalForm.find(".modal-confirm")[0]);
+
+            var $submitButton = $($modalForm.find(".simplemodal-confirm")[0]);
 
             $(document).on("click", '#' + $submitButton.attr("id"), function (e) {
                 e.preventDefault();
@@ -53,29 +55,46 @@
                         defaultOptions.ajaxError();
                     }
                 });
-                
             });
         }
         var modalActivator = $modal.attr("id");
-        $(document).on('click','a[href="#' + modalActivator + '"]', function (e) {
+        var navigateUrl;
+        $(document).on('click', '#' + modalActivator + '_activator', function (e) {
             e.preventDefault();
             // if the modal overlay doesn't exist, add it
-            if( !$(".modal-overlay").length ){
-                $('body').prepend('<div class="modal-overlay"></div>');
+            if (!$(".simplemodal-overlay").length) {
+                $('body').prepend('<div class="simplemodal-overlay"></div>');
             }
-            showModal();
-            // $modal.find("input").first().focus(); 
+            navigateUrl = $(this).attr("href");
+            showModal(); 
         });
 
         function showModal() {
-            $(".modal-overlay").addClass("modal-overlay--show");
-            $modal.addClass("modal--show");
+            $(".simplemodal-overlay").addClass("simplemodal-overlay--show");
+            $modal.addClass("simplemodal--show");
         }
-		
-		return {
-			show: showModal
-		};
-        
+
+        $modal.on("click", ".simplemodal-overlay, .simplemodal-close, .simplemodal-cancel", function (e) {
+            if (defaultOptions.onModalCancel) {
+                defaultOptions.onModalCancel(e);
+            }
+            hideModal();
+        });
+
+        $modal.on("click", ".simplemodal-confirm", function (e) {
+            if (defaultOptions.onModalConfirm) {
+                defaultOptions.onModalConfirm(e);
+            }
+            if (navigateUrl) {
+                window.location.replace(navigateUrl);
+            }
+            hideModal();
+        });
+
+        return {
+            show: showModal
+        };
+
     };
     //global click handlers
     $(document).on("keyup", function (e) {
@@ -84,16 +103,11 @@
         }
     });
 
-    $(document).on("click", ".modal-overlay, .modal-close, .modal-cancel", function (e) {
-        e.preventDefault();
-        hideModal();
-    });
-
     function hideModal() {
-        $('.modal').removeClass("modal--show");
-        $(".modal-overlay").removeClass("modal-overlay--show");
+        $('.simplemodal').removeClass("simplemodal--show");
+        $(".simplemodal-overlay").removeClass("simplemodal-overlay--show");
     }
-    
 
-    
+
+
 })(window.jQuery);

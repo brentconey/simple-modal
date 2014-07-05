@@ -2,7 +2,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>simple-modal</title>
+    <title>simple-simplemodal</title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" media="all" href="simplemodal.css" />
@@ -56,32 +56,32 @@
 </head>
 <body>
 
-<div class="modal" id="add_name">
+<div class="simplemodal" id="add_name">
     <form action="" method="post">
-        <header class="modal-header">
-            <span class="modal-title">Modal Heading</span>
-            <span class="modal-close">×</span>
+        <header class="simplemodal-header">
+            <span class="simplemodal-title">Modal Heading</span>
+            <span class="simplemodal-close">×</span>
         </header>
-        <div class="modal-guts">
+        <div class="simplemodal-guts">
 	        <input type="text" placeholder="What is your name?" />
 	</div>
-        <footer class="modal-footer">
-	    <input class="modal-action modal-cancel" type="submit" id="cancel" value="Cancel" />
-            <input class="modal-action modal-confirm" type="submit" id="save" value="Save" />
+        <footer class="simplemodal-footer">
+	    <input class="simplemodal-action simplemodal-cancel" type="submit" id="cancel" value="Cancel" />
+            <input class="simplemodal-action simplemodal-confirm" type="submit" id="save" value="Save" />
         </footer>
     </form>
 </div>
 
 	<div class="demo">
-		<a class="modal-activator" href="#add_name">Show Modal</a>
+		<a class="simplemodal-activator" id="add_name_activator">Show Modal</a>
 	</div>
 	
-	<div class="modal" id="success_message">
-        <header class="modal-header">
-            <span class="modal-title">Success Message</span>
-            <span class="modal-close">×</span>
+	<div class="simplemodal" id="success_message">
+        <header class="simplemodal-header">
+            <span class="simplemodal-title">Success Message</span>
+            <span class="simplemodal-close">×</span>
         </header>
-        <div class="modal-guts">
+        <div class="simplemodal-guts">
             <p>Success!</p>
         </div>
     </div>
@@ -92,18 +92,26 @@
 	<script type="text/javascript" src="simplemodal.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var successModal = $("#success_message").simplemodal();
+			var successsimplemodal = $("#success_message").simplemodal();
 			$("#add_name").simplemodal({
 				ajaxDone: successFunction,
-				ajaxError: errorHandler
+				ajaxError: errorHandler,
+				onsimplemodalCancel: onModalCancel,
+                onsimplemodalConfirm: onModalConfirm
 			});
 			
 			function successFunction(data){
-				successModal.show();
+				successsimplemodal.show();
 			}
 			
 			function errorHandler(data){
 				alert("error");
+			}
+			function onModalCancel() {
+			    alert("simplemodal Cancelled");
+			}
+			function onModalConfirm() {
+			    alert("simplemodal confirm");
 			}
 		});
 	

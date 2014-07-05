@@ -1,4 +1,4 @@
-.modal-overlay {
+.simplemodal-overlay {
   background: rgba(0, 0, 0, 0.5);
   min-height: 100%;
   min-width: 100%;
@@ -9,12 +9,12 @@
   transition: .15s ease-in-out all;
   z-index: -1; }
 
-.modal-overlay--show {
+.simplemodal-overlay--show {
   z-index: 100;
   opacity: 1;
   transition: .15s ease-in-out all; }
 
-.modal {
+.simplemodal {
   background: white;
   border-radius: 6px;
   position: absolute;
@@ -24,7 +24,7 @@
   z-index: -1;
   opacity: 0; }
 
-.modal--show {
+.simplemodal--show {
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25);
   top: 2.5%;
   z-index: 101;
@@ -32,12 +32,12 @@
   transition: .3s linear opacity,.3s ease-out top; }
 
 @media (min-width: 500px) {
-  .modal--show {
+  .simplemodal--show {
     top: 15%;
     width: 420px;
     left: 50%;
     margin-left: -200px; } }
-.modal-close {
+.simplemodal-close {
   border-radius: 0 5px 0 0;
   font-size: 1.5em;
   position: absolute;
@@ -51,37 +51,37 @@
   text-align: center;
   cursor: pointer; }
 
-.modal-close:hover {
+.simplemodal-close:hover {
   background: #e34c33;
   color: #fff; }
 
-.modal-header,
-.modal-footer {
+.simplemodal-header,
+.simplemodal-footer {
   height: 60px;
   line-height: 60px;
   padding: 0 20px; }
 
-.modal-header {
+.simplemodal-header {
   background: #f8f8f8;
   border-radius: 6px 6px 0 0; }
 
-.modal-footer {
+.simplemodal-footer {
   background-color: #f8f8f8;
   border-radius: 0 0 6px 6px;
   text-align: right; }
 
-.modal-title {
+.simplemodal-title {
   color: #333333;
   font-size: .85em;
   font-weight: bold; }
 
 @media (min-width: 500px) {
-  .modal-title {
+  .simplemodal-title {
     font-size: 1.2em; } }
-.modal-guts {
+.simplemodal-guts {
   padding: 20px; }
 
-.modal-action {
+.simplemodal-action {
   -webkit-appearance: none;
   background: #eee;
   border: none;
@@ -92,12 +92,12 @@
   font-weight: bold;
   padding: 6.9px 16.8px 8.1px; }
 
-.modal-cancel {
+.simplemodal-cancel {
   background: #dddddd;
   color: #666666;
   text-shadow: 0 1px 0 #e6e6e6; }
 
-.modal-confirm {
+.simplemodal-confirm {
   background: #40aae7;
   color: white;
   text-shadow: 0 1px 0 #666666; }
